@@ -2,7 +2,7 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 
@@ -15,17 +15,20 @@ app.get("/OhmsLaw.html", function (req, res) {
 });
 
 app.get("/OhmVoltage.html", function (req, res) {
-    res.sendFile(__dirname + '/OhmVoltage.html')
+    res.sendFile(__dirname + '/OhmVoltage.html');
 })
 
 app.get("/OhmCurrent.html", function (req, res) {
-    res.sendFile(__dirname + '/OhmCurrent.html')
+    res.sendFile(__dirname + '/OhmCurrent.html');
 })
 
 app.get("/OhmResistance.html", function (req, res) {
-    res.sendFile(__dirname + '/OhmResistance.html')
+    res.sendFile(__dirname + '/OhmResistance.html');
 })
 
+app.get("/MotorSpeed.html", function (req, res) {
+    res.sendFile(__dirname + '/MotorSpeed.html');
+})
 
 
 app.post("/OhmVoltage.html", function (req, res) {
@@ -45,11 +48,19 @@ app.post("/OhmCurrent.html", function (req, res) {
 })
 
 app.post("/OhmResistance.html", function (req, res) {
-    console.log(req.body);
+    // console.log(req.body);
     var V = req.body['voltage'];
     var I = req.body['current'];
     var R = V / I;
     res.send("Resistance is  " + R);
+})
+
+app.post("/MotorSpeed.html", function (req, res) {
+    console.log(req.body);
+    var F = req.body['frequency'];
+    var P = req.body['poles'];
+    var N = 120 * F / P;
+    res.send("Speed of motor is " + N);
 })
 
 
