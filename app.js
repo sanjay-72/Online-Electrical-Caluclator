@@ -4,6 +4,7 @@ const app = express();
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.set('view engine', 'ejs');
 
 
 app.get("/", function (req, res) {
@@ -36,7 +37,12 @@ app.post("/OhmVoltage.html", function (req, res) {
     var I = req.body['current'];
     var R = req.body['resistance'];
     var V = I * R;
-    res.send("Voltage is  " + V);
+    V = V.toFixed(3);
+    res.render("OhmsLawAnswer", {
+        quan: 'Voltage',
+        ans: V,
+        units: 'V'
+    });
 })
 
 app.post("/OhmCurrent.html", function (req, res) {
@@ -44,7 +50,12 @@ app.post("/OhmCurrent.html", function (req, res) {
     var V = req.body['voltage'];
     var R = req.body['resistance'];
     var I = V / R;
-    res.send("Current is  " + I);
+    I = I.toFixed(3);
+    res.render("OhmsLawAnswer", {
+        quan: 'Current',
+        ans: I,
+        units: 'A'
+    });
 })
 
 app.post("/OhmResistance.html", function (req, res) {
@@ -52,7 +63,12 @@ app.post("/OhmResistance.html", function (req, res) {
     var V = req.body['voltage'];
     var I = req.body['current'];
     var R = V / I;
-    res.send("Resistance is  " + R);
+    R = R.toFixed(3);
+    res.render("OhmsLawAnswer", {
+        quan: 'Resistance',
+        ans: R,
+        units: 'Ω'
+    });
 })
 
 app.post("/MotorSpeed.html", function (req, res) {
