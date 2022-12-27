@@ -24,6 +24,13 @@ body {
     font-family: 'Merienda', cursive;
 }
 
+.WelcomeText {
+    margin: 10px 40px 10px 40px;
+    text-align: center;
+    font-size: 1.6rem;
+    font-family: 'Merienda', cursive;
+}
+
 .caluclationSeperator {
     text-align: center;
     margin: 0;
@@ -86,4 +93,8 @@ body {
 
 .AllForms {
     margin: 20px;
+}
+
+.AnswerStyle {
+    color: rgb(0, 148, 27);
 }
