@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Merienda&family=Rubik+Vinyl&family=Satisfy&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Icon/favicon.ico">
+    <link type="text/css" href="css/styles.css" rel="stylesheet">
+    <!-- 
+    <link rel="icon" href="public/Icon/favicon.ico">
+    <link rel="stylesheet" href="public/css/styles.css">
+     -->
+    <title>Engineers Caluclator</title>
+</head>
+
+<body>
+    <div id=header class="row">
+        <div id=headerInner>
+            <p id=headerText><em>Online electrical caluclator</em></p>
+        </div>
+    </div>
+
+    <center>
+        <h2>Finding current using Ohms Law:</h2>
+        <div>
+            <form action="/OhmCurrent.html" method="post" autocomplete="off" class="AllForms">
+                <table>
+                    <tr>
+                        <td>
+                            <label for="voltage">Voltage (V): </label>
+                        </td>
+                        <td>
+                            <input type="text" name="voltage" class="centerAlign" placeholder="Voltage in Volts">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="resistance">Resistance (Ω): </label>
+                        </td>
+                        <td>
+                            <input type="text" class="centerAlign" name="resistance" placeholder="Resistance in Ohms">
+                        </td>
+                    </tr>
+                </table>
+                <button type="submit" name="submit" class="innerButton btn btn-outline-primary"
+                    style="font-size: 30px; margin-top: 200px;">Caluclate</button>
+            </form>
+        </div>
+    </center>
+
+    <div>
+        <p id="footerText">©2023 Created by: <a href="https://www.google.com/search?q=sanjay+kumar+konakandla"
+                target="_blank" class="authorLink">Sanjay Kumar
+                Konakandla</a></p>
+    </div>
+
+</body>
+
+</html>

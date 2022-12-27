@@ -1,0 +1,89 @@
+body {
+    background-color: rgb(157, 255, 235);
+    overflow-x: hidden;
+}
+
+#header {
+    color: black;
+    background-color: #fff700;
+    height: 6vw;
+}
+
+
+
+#headerText {
+    text-align: center;
+    font-family: 'Rubik Vinyl', cursive;
+    font-size: 4.9vw;
+}
+
+#WelcomeText {
+    margin: 10px 40px 10px 40px;
+    text-align: center;
+    font-size: 1.6rem;
+    font-family: 'Merienda', cursive;
+}
+
+.caluclationSeperator {
+    text-align: center;
+    margin: 0;
+    margin-top: 25px;
+    font-size: 1.7rem;
+    font-family: 'satisfy', cursive;
+    color: rgb(0, 82, 107);
+}
+
+.innerButton {
+    margin: 10px;
+    position: relative;
+    width: 400px;
+    height: 60px;
+    font-family: 'kalam';
+}
+
+.innerButton:hover {
+    width: 420px;
+    font-family: 'merienda';
+}
+
+.buttonFill {
+    background-color: #c2ff72;
+}
+
+.buttonBottomRightBorder {
+    border-right-width: 6px;
+    border-bottom-width: 6px;
+}
+
+.buttonLeftRightBorder {
+    border-right-width: 10px;
+    border-left-width: 10px;
+    border-color: rgb(0, 205, 232);
+    color: rgb(94, 94, 255);
+}
+
+#buttonsDivision,
+#buttonsDivision2 {
+    text-align: center;
+}
+
+#footerText {
+    margin-top: 40px;
+    text-align: center;
+    font-family: 'kalam', cursive;
+    color: grey;
+}
+
+
+.authorLink:hover {
+    font-size: 1.1rem;
+}
+
+
+.centerAlign {
+    text-align: center;
+}
+
+.AllForms {
+    margin: 20px;
+}
