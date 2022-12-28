@@ -72,11 +72,15 @@ app.post("/OhmResistance.html", function (req, res) {
 })
 
 app.post("/MotorSpeed.html", function (req, res) {
-    console.log(req.body);
+    // console.log(req.body);
     var F = req.body['frequency'];
     var P = req.body['poles'];
     var N = 120 * F / P;
-    res.send("Speed of motor is " + N);
+    res.render("MotorSpeedAnswer", {
+        quan: 'Speed',
+        ans: N,
+        units: 'rpm'
+    });
 })
 
 
