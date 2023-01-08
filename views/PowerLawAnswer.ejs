@@ -27,35 +27,26 @@
             <p id=headerText><em>Online electrical caluclator</em></p>
         </div>
     </div>
+    <h1 class="WelcomeText AnswerStyle">
+        As per the given inputs the <%=quan%> would be <strong>
+                <%=ans%>
+                    <%=units%>
+            </strong>
 
-    <center>
-        <h2 class="WelcomeText">DC Motor Speed Caluclation</h2>
-        <div>
-            <form action="/MotorSpeed.html" method="post" autocomplete="off" class="AllForms">
-                <table>
-                    <tr>
-                        <td>
-                            <label for="frequency">Frequency in armature (F): </label>
-                        </td>
-                        <td>
-                            <input type="text" name="frequency" class="centerAlign" placeholder="Frequency in Hz">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="poles">Number of poles (N): </label>
-                        </td>
-                        <td>
-                            <input type="text" class="centerAlign" name="poles" placeholder="No. of Poles">
-                        </td>
-                    </tr>
-                </table>
-                <button type="submit" name="submit" class="innerButton btn btn-outline-primary"
-                    style="font-size: 30px; margin-top: 200px;">Caluclate</button>
-            </form>
-        </div>
-    </center>
-
+    </h1>
+    <div id="buttonsDivision">
+        <p class="caluclationSeperator">Want to try calculator again ?</p>
+        <br>
+        <a href="/PowerLaw.html">
+            <button type="button" class="btn btn-outline-primary innerButton buttonBottomRightBorder"
+                style="font-size: 30px;">Go to Power Law</button>
+        </a>
+        <br>
+        <a href="/">
+            <button type="button" class="btn btn-outline-primary innerButton buttonBottomRightBorder"
+                style="font-size: 30px;">Go to Home Page</button>
+        </a>
+    </div>
     <div>
         <p id="footerText">©2023 Created by: <a href="https://www.google.com/search?q=sanjay+kumar+konakandla"
                 target="_blank" class="authorLink">Sanjay Kumar

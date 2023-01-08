@@ -31,6 +31,27 @@ app.get("/MotorSpeed.html", function (req, res) {
     res.sendFile(__dirname + '/MotorSpeed.html');
 })
 
+app.get("/CurrentLaw.html", function (req, res) {
+    res.sendFile(__dirname + '/CurrentLaw.html');
+})
+
+app.get("/PowerLaw.html", function (req, res) {
+    res.sendFile(__dirname + '/PowerLaw.html');
+});
+
+app.get("/PowerWithVI.html", function (req, res) {
+    res.sendFile(__dirname + '/PowerWithVI.html');
+});
+
+app.get("/PowerWithIR.html", function (req, res) {
+    res.sendFile(__dirname + '/PowerWithIR.html');
+});
+
+app.get("/PowerWithVR.html", function (req, res) {
+    res.sendFile(__dirname + '/PowerWithVR.html');
+});
+
+
 
 app.post("/OhmVoltage.html", function (req, res) {
     // console.log(req.body);
@@ -83,7 +104,62 @@ app.post("/MotorSpeed.html", function (req, res) {
     });
 })
 
+app.post("/CurrentLaw.html", function (req, res) {
+    // console.log(req.body);
+    var In = req.body['In'];
+    var Out = req.body['Out'];
+    var direction = 'Incoming';
+    var Ans = 0;
+    if (In > Out) {
+        Ans = In - Out;
+        direction = 'Outgoing';
+    }
+    else if (In === Out) direction = '';
+    else Ans = Out - In;
+    res.render("CurrentLawAnswer", {
+        quan: 'Current',
+        ans: Ans,
+        units: direction
+    });
+})
 
+app.post("/PowerWithVI.html", function (req, res) {
+    // console.log(req.body);
+    var V = req.body['voltage'];
+    var I = req.body['current'];
+    var P = V * I;
+    P = P.toFixed(2);
+    res.render("PowerLawAnswer", {
+        quan: 'Power',
+        ans: P,
+        units: 'W'
+    });
+})
+
+app.post("/PowerWithIR.html", function (req, res) {
+    // console.log(req.body);
+    var I = req.body['current'];
+    var R = req.body['resistance'];
+    var P = I * I * R;
+    P = P.toFixed(2);
+    res.render("PowerLawAnswer", {
+        quan: 'Power',
+        ans: P,
+        units: 'W'
+    });
+})
+
+app.post("/PowerWithVR.html", function (req, res) {
+    var V = req.body['voltage'];
+    var R = req.body['resistance'];
+    var P = V * V / R;
+    P = P.toFixed(2);
+    res.render("PowerLawAnswer", {
+        quan: 'Power',
+        ans: P,
+        units: 'W'
+    });
+})
 
 app.listen(3000, function () {
     console.log("App is running on port 3000")

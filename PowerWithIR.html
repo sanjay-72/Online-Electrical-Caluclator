@@ -29,26 +29,27 @@
     </div>
 
     <center>
-        <h2 class="WelcomeText">DC Motor Speed Caluclation</h2>
+        <h2 class="WelcomeText">Finding Power using Current and Resistance.</h2>
         <div>
-            <form action="/MotorSpeed.html" method="post" autocomplete="off" class="AllForms">
+            <form action="/PowerWithIR.html" method="post" autocomplete="off" class="AllForms">
                 <table>
                     <tr>
                         <td>
-                            <label for="frequency">Frequency in armature (F): </label>
+                            <label for="current">Current (I): </label>
                         </td>
                         <td>
-                            <input type="text" name="frequency" class="centerAlign" placeholder="Frequency in Hz">
+                            <input type="text" name="current" class="centerAlign" placeholder="Current in Amps">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <label for="poles">Number of poles (N): </label>
+                            <label for="resistance">Resistance (Ω): </label>
                         </td>
                         <td>
-                            <input type="text" class="centerAlign" name="poles" placeholder="No. of Poles">
+                            <input type="text" class="centerAlign" name="resistance" placeholder="Resistance in Ohms">
                         </td>
                     </tr>
+
                 </table>
                 <button type="submit" name="submit" class="innerButton btn btn-outline-primary"
                     style="font-size: 30px; margin-top: 200px;">Caluclate</button>

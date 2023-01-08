@@ -29,24 +29,25 @@
     </div>
 
     <center>
-        <h2 class="WelcomeText">DC Motor Speed Caluclation</h2>
+        <h2 class="WelcomeText">As per Current Law (KCL) the total current at a node is equal to zero. That means the
+            total current that is incoming is equal to the outgoing current.</h2>
         <div>
-            <form action="/MotorSpeed.html" method="post" autocomplete="off" class="AllForms">
+            <form action="/CurrentLaw.html" method="post" autocomplete="off" class="AllForms">
                 <table>
                     <tr>
                         <td>
-                            <label for="frequency">Frequency in armature (F): </label>
+                            <label for="In">Total Incoming current (In): </label>
                         </td>
                         <td>
-                            <input type="text" name="frequency" class="centerAlign" placeholder="Frequency in Hz">
+                            <input type="text" name="In" class="centerAlign" placeholder="Current in Amps">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <label for="poles">Number of poles (N): </label>
+                            <label for="Out">Total Outgoing current (Out): </label>
                         </td>
                         <td>
-                            <input type="text" class="centerAlign" name="poles" placeholder="No. of Poles">
+                            <input type="text" class="centerAlign" name="Out" placeholder="Current in Amps">
                         </td>
                     </tr>
                 </table>
