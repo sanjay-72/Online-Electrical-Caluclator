@@ -2,6 +2,8 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
+const https = require('https');
+const url = 'https://api.genderize.io/?name=';
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
@@ -51,7 +53,13 @@ app.get("/PowerWithVR.html", function (req, res) {
     res.sendFile(__dirname + '/PowerWithVR.html');
 });
 
+app.get("/GenderPrediction.html", function (req, res) {
+    res.sendFile(__dirname + '/GenderPrediction.html');
+});
 
+app.get("/PowerFactor.html", function (req, res) {
+    res.sendFile(__dirname + '/PowerFactor.html');
+});
 
 app.post("/OhmVoltage.html", function (req, res) {
     // console.log(req.body);
@@ -161,6 +169,43 @@ app.post("/PowerWithVR.html", function (req, res) {
     });
 })
 
+app.post("/GenderPrediction.html", function (req, res) {
+    var givenName = req.body['givenName'];
+    var name = givenName.toLowerCase();
+    var resGender = '';
+    const request = https.request(url + name, (response) => {
+        let data = '';
+        response.on('data', (chunk) => {
+            data = data + chunk.toString();
+        });
+
+        response.on('end', () => {
+            const body = JSON.parse(data);
+            resGender = body['gender'];
+            // console.log(body['gender']);
+            res.render("GenderAnswer", {
+                name: givenName,
+                gender: resGender
+            })
+        });
+    })
+
+    request.on('error', (error) => {
+        console.log('An error', error);
+    });
+    request.end();
+})
+
+app.post("/PowerFactor.html", function (req, res) {
+    console.log(req.body);
+    var W = req.body['realPower'];
+    var VI = req.body['apperantPower'];
+    var PF = W / VI;
+    PF = PF.toFixed(3);
+    res.render("PowerFactorAnswer.ejs", {
+        ans: PF
+    })
+})
 app.listen(3000, function () {
     console.log("App is running on port 3000")
 });
