@@ -65,6 +65,20 @@ app.get("/PowerFactor.html", function (req, res) {
     res.sendFile(__dirname + '/PowerFactor.html');
 });
 
+app.get("/BillEstimator.html", function (req, res) {
+    res.sendFile(__dirname + '/BillEstimator.html');
+});
+
+app.get("/WireThickness.html", function (req, res) {
+    res.sendFile(__dirname + '/WireThickness.html');
+});
+
+app.get("/EarthResistance.html", function (req, res) {
+    res.sendFile(__dirname + '/EarthResistance.html');
+});
+
+
+
 app.post("/OhmVoltage.html", function (req, res) {
     // console.log(req.body);
     var I = req.body['current'];
@@ -210,6 +224,36 @@ app.post("/PowerFactor.html", function (req, res) {
         ans: PF
     })
 })
+
+app.post("/BillEstimator.html", function (req, res) {
+    // console.log(req.body);
+    var units = req.body['units'];
+    var cost = req.body['cost'];
+    var dues = req.body['dues'];
+    var bill = units * cost + (+dues);
+    res.render("BillEstimatorAnswer", {
+        units: units,
+        ans: bill,
+        dues: dues
+    })
+})
+
+app.post("/WireThickness.html", function (req, res) {
+    // console.log(req.body);
+    var current = req.body['current'];
+    var wireSize = 0;
+    if (current > 0) {
+        if (current < 6) console.log("You need 0.5 Sq.mm copper wire");
+        else if (current < 11) console.log("You need 0.75 Sq.mm copper wire");
+        else if (current < 16) console.log("You need 1 Sq.mm copper wire");
+        else if (current < 22) console.log("You need 1.5 Sq.mm copper wire");
+        else if (current < 28) console.log("You need 2.5 Sq.mm copper wire");
+        else if (current < 42) console.log("You need 4.0 Sq.mm copper wire");
+        else if (current < 52) console.log("You need 6.0 Sq.mm copper wire");
+        else console.log("Sorry, please verify standard table to determine.")
+    }
+})
+
 app.listen(3000, function () {
     console.log("App is running on port 3000")
 });
