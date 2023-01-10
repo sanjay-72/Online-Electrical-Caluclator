@@ -7,10 +7,14 @@ const url = 'https://api.genderize.io/?name=';
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
-
+var userCount = 1;
 
 app.get("/", function (req, res) {
-    res.sendFile(__dirname + '/index.html');
+    // res.sendFile(__dirname + '/index.html');
+    userCount = userCount + 1;
+    res.render("index", {
+        userCount: userCount
+    })
 });
 
 app.get("/OhmsLaw.html", function (req, res) {
@@ -197,7 +201,7 @@ app.post("/GenderPrediction.html", function (req, res) {
 })
 
 app.post("/PowerFactor.html", function (req, res) {
-    console.log(req.body);
+    // console.log(req.body);
     var W = req.body['realPower'];
     var VI = req.body['apperantPower'];
     var PF = W / VI;
