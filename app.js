@@ -78,6 +78,9 @@ app.get("/EarthResistance.html", function (req, res) {
     res.sendFile(__dirname + '/EarthResistance.html');
 });
 
+app.get("/ElectricityConsumption.html", function (req, res) {
+    res.sendFile(__dirname + '/ElectricityConsumption.html')
+});
 
 
 app.post("/OhmVoltage.html", function (req, res) {
