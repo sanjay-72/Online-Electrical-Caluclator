@@ -12,6 +12,7 @@ var userCount = 1;
 app.get("/", function (req, res) {
     // res.sendFile(__dirname + '/index.html');
     userCount = userCount + 1;
+    console.log(req.socket.remoteAddress);
     res.render("index", {
         userCount: userCount
     })
@@ -122,13 +123,23 @@ app.post("/MotorSpeed.html", function (req, res) {
     // console.log(req.body);
     var F = req.body['frequency'];
     var P = req.body['poles'];
-    var N = 120 * F / P;
-    res.render("MotorSpeedAnswer", {
-        quan: 'Speed',
-        ans: N,
-        units: 'rpm'
-    });
-})
+    if (P % 2 == 0) {
+        var N = 120 * F / P;
+        res.render("MotorSpeedAnswer", {
+            quan: 'Speed',
+            ans: N,
+            units: 'rpm'
+        });
+    }
+    else {
+        res.render("MotorSpeedAnswer", {
+            quan: 'Speed',
+            ans: 'wrongly determined because the poles should even in number.',
+            units: ''
+        });
+    }
+
+});
 
 app.post("/CurrentLaw.html", function (req, res) {
     // console.log(req.body);
@@ -243,16 +254,45 @@ app.post("/WireThickness.html", function (req, res) {
     var current = req.body['current'];
     var wireSize = 0;
     if (current > 0) {
-        if (current < 6) console.log("You need 0.5 Sq.mm copper wire");
-        else if (current < 11) console.log("You need 0.75 Sq.mm copper wire");
-        else if (current < 16) console.log("You need 1 Sq.mm copper wire");
-        else if (current < 22) console.log("You need 1.5 Sq.mm copper wire");
-        else if (current < 28) console.log("You need 2.5 Sq.mm copper wire");
-        else if (current < 42) console.log("You need 4.0 Sq.mm copper wire");
-        else if (current < 52) console.log("You need 6.0 Sq.mm copper wire");
-        else console.log("Sorry, please verify standard table to determine.")
+        if (current < 6) res.render("WireThicknessAnswer", {
+            ans: "You need 0.5 Sq.mm copper wire"
+        })
+        else if (current < 11)
+            res.render("WireThicknessAnswer", {
+                ans: "You need 0.75 Sq.mm copper wire"
+            })
+        else if (current < 16)
+            res.render("WireThicknessAnswer", {
+                ans: "You need 1.0 Sq.mm copper wire"
+            })
+        else if (current < 22)
+            res.render("WireThicknessAnswer", {
+                ans: "You need 1.5 Sq.mm copper wire"
+            })
+        else if (current < 28)
+            res.render("WireThicknessAnswer", {
+                ans: "You need 2.5 Sq.mm copper wire"
+            })
+        else if (current < 42)
+            res.render("WireThicknessAnswer", {
+                ans: "You need 4.0 Sq.mm copper wire"
+            })
+        else if (current < 52)
+            res.render("WireThicknessAnswer", {
+                ans: "You need 6.0 Sq.mm copper wire"
+            })
+        else
+            res.render("WireThicknessAnswer", {
+                ans: "Sorry, please verify standard table to determine."
+            })
     }
+    else
+        res.render("WireThicknessAnswer", {
+            ans: "Sorry, please enter a valid value of current."
+        })
 })
+
+
 
 app.listen(3000, function () {
     console.log("App is running on port 3000")
