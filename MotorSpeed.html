@@ -29,16 +29,16 @@
     </div>
 
     <center>
-        <h2 class="WelcomeText">DC Motor Speed Caluclation</h2>
+        <h2 class="WelcomeText">1Φ Generator speed caluclation speed Caluclation</h2>
         <div>
             <form action="/MotorSpeed.html" method="post" autocomplete="off" class="AllForms">
                 <table>
                     <tr>
                         <td>
-                            <label for="frequency">Frequency in armature (F): </label>
+                            <label for="frequency">Frequency (F): </label>
                         </td>
                         <td>
-                            <input type="number" minlength="1" name="frequency" class="centerAlign"
+                            <input type="number" min="0" name="frequency" class="centerAlign"
                                 placeholder="Frequency in Hz">
                         </td>
                     </tr>
@@ -47,8 +47,7 @@
                             <label for="poles">Number of poles (N): </label>
                         </td>
                         <td>
-                            <input type="number" minlength="1" class="centerAlign" name="poles"
-                                placeholder="No. of Poles">
+                            <input type="number" min="0" class="centerAlign" name="poles" placeholder="No. of Poles">
                         </td>
                     </tr>
                 </table>

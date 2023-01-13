@@ -297,7 +297,22 @@ app.post("/WireThickness.html", function (req, res) {
 
 
 app.post("/ElectricityConsumption.html", function (req, res) {
-    console.log(req.body);
+    // console.log(req.body);
+    var TubeLightN = req.body['TubeLightN'], TubeLightW = req.body['TubeLightW'],
+        TubeLightU = req.body['TubeLightU'], FanN = req.body['FanN'], FanW = req.body['FanW'],
+        FanU = req.body['FanU'], LedlightsN = req.body['LedlightsN'], LedlightsW = req.body['LedlightsW'],
+        LedlightsU = req.body['LedlightsU'], GeyserN = req.body['GeyserN'], GeyserW = req.body['GeyserW'],
+        GeyserU = req.body['GeyserU'], ChargersN = req.body['ChargersN'], ChargersW = req.body['ChargersW'],
+        ChargersU = req.body['ChargersU'], PurifierN = req.body['PurifierN'], PurifierW = req.body['PurifierW'],
+        PurifierU = req.body['PurifierU'], TelevisionN = req.body['TelevisionN'],
+        TelevisionW = req.body['TelevisionW'], TelevisionU = req.body['TelevisionU'],
+        acN = req.body['acN'], acW = req.body['acW'], acU = req.body['acU'], OtherN = req.body['OtherN'],
+        OtherW = req.body['OtherW'], OtherU = req.body['OtherU'];
+    var ans = TubeLightN * TubeLightU * TubeLightW + FanN * FanU * FanW +
+        LedlightsN * LedlightsU * LedlightsW + GeyserN * GeyserU * GeyserW +
+        ChargersN * ChargersU * ChargersW + PurifierN * PurifierU * PurifierW +
+        TelevisionN * TelevisionU * TelevisionW + acN * acU * acW + OtherN * OtherU * OtherW;
+    console.log(ans);
 })
 
 app.listen(80, function () {
