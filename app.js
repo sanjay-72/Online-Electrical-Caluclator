@@ -296,7 +296,10 @@ app.post("/WireThickness.html", function (req, res) {
 })
 
 
+app.post("/ElectricityConsumption.html", function (req, res) {
+    console.log(req.body);
+})
 
-app.listen(3000, function () {
-    console.log("App is running on port 3000")
+app.listen(80, function () {
+    console.log("App is running on port 80")
 });
