@@ -38,7 +38,8 @@
                             <label for="units">Consumption units (KWH): </label>
                         </td>
                         <td>
-                            <input type="number" min="0" name="units" class="centerAlign" placeholder="Energy in KWH">
+                            <input type="number" step="0.1" min="1" name="units" class="centerAlign"
+                                placeholder="Energy in KWH">
                         </td>
                     </tr>
                     <tr>
@@ -55,8 +56,8 @@
                             <label for="dues">Previous dues if any (₹): </label>
                         </td>
                         <td>
-                            <input type="number" class="centerAlign" name="dues" placeholder="Previous dues in ₹"
-                                value="0">
+                            <input type="number" step="0.1" class="centerAlign" name="dues"
+                                placeholder="Previous dues in ₹" value="0">
                         </td>
                     </tr>
                 </table>
