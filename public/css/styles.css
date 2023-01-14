@@ -97,9 +97,23 @@ body {
 
 .AnswerStyle {
     color: #F7A20C;
-    font-size: 4.3vw;
+    font-size: 4vw;
 }
 
 .calcAgain {
     margin-top: 100px;
+}
+
+@media(max-width: 900px) {
+    .AnswerStyle {
+        font-size: 36px;
+    }
+
+    #headerText {
+        font-size: 32px;
+    }
+
+    #header {
+        height: 50px;
+    }
 }
