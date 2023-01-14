@@ -145,17 +145,20 @@ app.post("/MotorSpeed.html", function (req, res) {
 });
 
 app.post("/CurrentLaw.html", function (req, res) {
-    // console.log(req.body);
-    var In = req.body['In'];
-    var Out = req.body['Out'];
+    console.log(req.body);
+    var In = Number(req.body['In']);
+    var Out = Number(req.body['Out']);
     var direction = 'Incoming';
     var Ans = 0;
     if (In > Out) {
         Ans = In - Out;
+        console.log("In>Out");
         direction = 'Outgoing';
     }
     else if (In === Out) direction = '';
-    else Ans = Out - In;
+    else if (In < Out) {
+        Ans = Out - In;
+    }
     res.render("CurrentLawAnswer", {
         quan: 'Current',
         ans: Ans,
@@ -254,8 +257,7 @@ app.post("/BillEstimator.html", function (req, res) {
 
 app.post("/WireThickness.html", function (req, res) {
     // console.log(req.body);
-    var current = req.body['current'];
-    var wireSize = 0;
+    var current = Number(req.body['current']);
     if (current > 0) {
         if (current < 6) res.render("WireThicknessAnswer", {
             ans: "You need 0.5 Sq.mm copper wire"
@@ -312,7 +314,11 @@ app.post("/ElectricityConsumption.html", function (req, res) {
         LedlightsN * LedlightsU * LedlightsW + GeyserN * GeyserU * GeyserW +
         ChargersN * ChargersU * ChargersW + PurifierN * PurifierU * PurifierW +
         TelevisionN * TelevisionU * TelevisionW + acN * acU * acW + OtherN * OtherU * OtherW;
-    console.log(ans);
+    res.render("ElectricityConsumptionAnswer", {
+        quan: 'Energy Consumption',
+        ans: ans,
+        units: 'KWH'
+    });
 })
 
 app.listen(80, function () {

@@ -96,5 +96,10 @@ body {
 }
 
 .AnswerStyle {
-    color: rgb(0, 148, 27);
+    color: #F7A20C;
+    font-size: 4.3vw;
+}
+
+.calcAgain {
+    margin-top: 100px;
 }

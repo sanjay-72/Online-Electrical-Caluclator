@@ -27,37 +27,26 @@
             <p id=headerText><em>Online electrical caluclator</em></p>
         </div>
     </div>
+    <h1 class="WelcomeText AnswerStyle">
+        As per the given inputs the <%=quan%> would be <strong>
+                <%=ans%>
+                    <%=units%>
+            </strong>
 
-    <center>
-        <h2 class="WelcomeText">1Φ Generator speed caluclation speed Caluclation</h2>
-        <div>
-            <form action="/MotorSpeed.html" method="post" autocomplete="off" class="AllForms">
-                <table>
-                    <tr>
-                        <td>
-                            <label for="frequency">Frequency (F): </label>
-                        </td>
-                        <td>
-                            <input type="number" min="0" name="frequency" class="centerAlign"
-                                placeholder="Frequency in Hz">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="poles">Number of poles (N): </label>
-                        </td>
-                        <td>
-                            <input type="number" min="0" class="centerAlign" step="2" name="poles"
-                                placeholder="No. of Poles">
-                        </td>
-                    </tr>
-                </table>
-                <button type="submit" name="submit" class="innerButton btn btn-outline-primary"
-                    style="font-size: 30px; margin-top: 200px;">Caluclate</button>
-            </form>
-        </div>
-    </center>
-
+    </h1>
+    <div id="buttonsDivision">
+        <p class="caluclationSeperator calcAgain">Want to try calculator again ?</p>
+        <br>
+        <a href="/ElectricityConsumption.html">
+            <button type="button" class="btn btn-outline-primary innerButton buttonBottomRightBorder"
+                style="font-size: 30px;">Go to KWH caluclation</button>
+        </a>
+        <br>
+        <a href="/">
+            <button type="button" class="btn btn-outline-primary innerButton buttonBottomRightBorder"
+                style="font-size: 30px;">Go to Home Page</button>
+        </a>
+    </div>
     <div>
         <p id="footerText">©2023 Created by: <a href="https://www.google.com/search?q=sanjay+kumar+konakandla"
                 target="_blank" class="authorLink">Sanjay Kumar
