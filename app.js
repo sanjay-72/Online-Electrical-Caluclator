@@ -146,14 +146,13 @@ app.post("/MotorSpeed.html", function (req, res) {
 });
 
 app.post("/CurrentLaw.html", function (req, res) {
-    console.log(req.body);
+    // console.log(req.body);
     var In = Number(req.body['In']);
     var Out = Number(req.body['Out']);
     var direction = 'Incoming';
     var Ans = 0;
     if (In > Out) {
         Ans = In - Out;
-        console.log("In>Out");
         direction = 'Outgoing';
     }
     else if (In === Out) direction = '';

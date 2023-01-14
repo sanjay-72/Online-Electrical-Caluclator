@@ -110,10 +110,10 @@ body {
     }
 
     #headerText {
-        font-size: 32px;
+        font-size: 6vw;
     }
 
     #header {
-        height: 50px;
+        height: 7.6vw;
     }
 }
