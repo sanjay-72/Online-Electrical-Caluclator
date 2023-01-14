@@ -11,8 +11,11 @@ var userCount = 1;
 
 app.get("/", function (req, res) {
     // res.sendFile(__dirname + '/index.html');
-    userCount = userCount + 1;
-    console.log(req.socket.remoteAddress);
+    myNum = Math.random() * 3;
+    myNum = Math.round(myNum);
+    console.log(myNum);
+    userCount = userCount + myNum;
+
     res.render("index", {
         userCount: userCount
     })
