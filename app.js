@@ -327,3 +327,4 @@ app.post("/ElectricityConsumption.html", function (req, res) {
 app.listen(80, function () {
     console.log("App is running on port 80")
 });
+
